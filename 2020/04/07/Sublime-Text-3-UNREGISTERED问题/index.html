@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/blog-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/blog-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="前言 Sublime Text 3是一款免费软件，试用版可以永久免费使用，但是在运行程序时，时不时的弹出未注册的窗口，以及窗口边栏上常驻的UNREGISTERED字样，着实碍眼。苦于本人是穷学生，无法付费支持开发者，只能怀着虔诚的心来破解软件。 测试版本 Version 3.2.2，Build 3211">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime Text 3 UNREGISTERED问题">
+<meta property="og:url" content="http://yoursite.com/2020/04/07/Sublime-Text-3-UNREGISTERED%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="浮生· 杂记">
+<meta property="og:description" content="前言 Sublime Text 3是一款免费软件，试用版可以永久免费使用，但是在运行程序时，时不时的弹出未注册的窗口，以及窗口边栏上常驻的UNREGISTERED字样，着实碍眼。苦于本人是穷学生，无法付费支持开发者，只能怀着虔诚的心来破解软件。 测试版本 Version 3.2.2，Build 3211">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-07T00:57:20.000Z">
+<meta property="article:modified_time" content="2020-04-07T01:56:21.204Z">
+<meta property="article:author" content="召小波">
+<meta property="article:tag" content="python 3">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/07/Sublime-Text-3-UNREGISTERED%E9%97%AE%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Sublime Text 3 UNREGISTERED问题 | 浮生· 杂记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">浮生· 杂记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/Sublime-Text-3-UNREGISTERED%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="召小波">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浮生· 杂记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Sublime Text 3 UNREGISTERED问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-07 08:57:20 / 修改时间：09:56:21" itemprop="dateCreated datePublished" datetime="2020-04-07T08:57:20+08:00">2020-04-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<p><em>Sublime Text 3是一款免费软件，试用版可以永久免费使用，但是在运行程序时，时不时的弹出未注册的窗口，以及窗口边栏上常驻的<code>UNREGISTERED</code>字样，着实碍眼。苦于本人是穷学生，无法付费支持开发者，只能怀着虔诚的心来破解软件。</em></p>
+<p>测试版本 <code>Version 3.2.2，Build 3211</code></p>
+</blockquote>
+<a id="more"></a>
+
+<h4 id="一、关闭软件，备份sublime-text-exe文件"><a href="#一、关闭软件，备份sublime-text-exe文件" class="headerlink" title="一、关闭软件，备份sublime_text.exe文件"></a>一、关闭软件，备份sublime_text.exe文件</h4><blockquote>
+<p><code>sublime_text.exe</code>文件在软件安装目录下</p>
+<p>备份操作是为了防止“憨憨们”操作出错，避免重装</p>
+</blockquote>
+<h4 id="二、使用十六进制编辑器打开文件"><a href="#二、使用十六进制编辑器打开文件" class="headerlink" title="二、使用十六进制编辑器打开文件"></a>二、使用十六进制编辑器打开文件</h4><blockquote>
+<p>可以使用自己喜欢的十六进制编辑器</p>
+<p>也可以使用<strong><a href="https://hexed.it/" target="_blank" rel="noopener">在线工具</a></strong>（网络状态不好的，可能打不开）</p>
+<p>打开文件的流程都是类似的，无外乎open，open file，打开等指令（不要做伸手党！）</p>
+</blockquote>
+<h4 id="三、修改相关值"><a href="#三、修改相关值" class="headerlink" title="三、修改相关值"></a>三、修改相关值</h4><blockquote>
+<ol>
+<li>使用Ctrl + F 搜索 97 94 0D在文件中的位置</li>
+<li>将这6个数字修改为 00 00 00（不知道方法的请自行多尝试一下！）</li>
+<li>保存文件（当然，使用在线工具的需要Ctrl + S将文件下载下来）</li>
+</ol>
+</blockquote>
+<h4 id="四、注册"><a href="#四、注册" class="headerlink" title="四、注册"></a>四、注册</h4><blockquote>
+<ol>
+<li><p>确定文件名称为<code>sublime_text.exe</code>，将此文件拖入安装目录并替换</p>
+</li>
+<li><p>打开文件，Help -&gt; Enter License ,输入注册码</p>
+<p>—– BEGIN LICENSE —–<br>TwitterInc<br>200 User License<br>EA7E-890007<br>1D77F72E 390CDD93 4DCBA022 FAF60790<br>61AA12C0 A37081C5 D0316412 4584D136<br>94D7F7D4 95BC8C1C 527DA828 560BB037<br>D1EDDD8C AE7B379F 50C9D69D B35179EF<br>2FE898C4 8E4277A8 555CE714 E1FB0E43<br>D5D52613 C3D12E98 BC49967F 7652EED2<br>9D2D2E61 67610860 6D338B72 5CF95C69<br>E36B85CC 84991F19 7575D828 470A92AB<br>—— END LICENSE ——</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="五、友情提示"><a href="#五、友情提示" class="headerlink" title="五、友情提示"></a>五、友情提示</h4><blockquote>
+<ul>
+<li>当前版本的软件注册成功后，不能保证下次升级后仍为激活状态，可能需要重新激活</li>
+<li>个人建议关闭自动更新，详见后续帖</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>本文参考自 <a href="https://www.52pojie.cn/thread-1027721-1-1.html" target="_blank" rel="noopener">吾爱破解</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>小哥哥，小姐姐，打赏一下吧~</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="召小波 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="召小波 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python-3/" rel="tag"># python 3</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/27/CUDA-v10-0-cuDNN%E5%AE%89%E8%A3%85/" rel="prev" title="CUDA v10.0+cuDNN安装">
+      <i class="fa fa-chevron-left"></i> CUDA v10.0+cuDNN安装
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/16/potplayer%E7%A7%81%E4%BA%BA%E8%AE%A2%E5%88%B6/" rel="next" title="potplayer私人订制">
+      potplayer私人订制 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、关闭软件，备份sublime-text-exe文件"><span class="nav-number">2.</span> <span class="nav-text">一、关闭软件，备份sublime_text.exe文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、使用十六进制编辑器打开文件"><span class="nav-number">3.</span> <span class="nav-text">二、使用十六进制编辑器打开文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、修改相关值"><span class="nav-number">4.</span> <span class="nav-text">三、修改相关值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、注册"><span class="nav-number">5.</span> <span class="nav-text">四、注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、友情提示"><span class="nav-number">6.</span> <span class="nav-text">五、友情提示</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="召小波"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">召小波</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/primeshao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;primeshao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">召小波</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
